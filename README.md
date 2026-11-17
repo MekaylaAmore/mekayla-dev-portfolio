@@ -99,31 +99,4 @@ A platform for course management, student enrollment, and progress tracking.
 
 ## 🎯 Career Goals
 
-My goal is to become a highly skilled Full-Stack Software Developer building scalable applications in fintech, business systems, and enterprise software.
-
----
-
-## 📫 Connect With Me
-
-### LinkedIn
-Add your LinkedIn URL here
-
-### GitHub
-Add your GitHub URL here
-
-### Email
-Add your professional email here
-
----
-
-## ⭐ Portfolio Website
-
-Visit my portfolio:
-
-[Portfolio Website](https://your-portfolio-link.com)
-
----
-
-Thank you for visiting my portfolio repository!
-
-If you like my work, feel free to explore my projects and connect with me.
+My goal is to become a highly skilled Full-Stack Software Developer building scalable applications in fintech, business systems, and enterprise 
