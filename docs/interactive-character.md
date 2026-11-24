@@ -330,8 +330,10 @@ Optional `entryFrames` maps a previous animation name to a zero-based starting
 index. Source intervals identify consecutive frames within the shared original
 clip; omit them when replacing a sequence with unrelated footage so that it
 crossfades instead of claiming a continuous source join.
-`idle` loops; all other sequences play once. The original MP4 stays local and is
-excluded through `.gitignore`. No dependencies or paid services were added.
+`idle` loops; all other sequences play once. The original `character-animation.mp4`
+is included at the repository root for viewing and regenerating the assets. The
+website continues to play the optimized WebP frames; the original MP4 is not
+copied into the production build. No dependencies or paid services were added.
 
 ## Files
 
@@ -349,7 +351,7 @@ excluded through `.gitignore`. No dependencies or paid services were added.
 | `src/App.tsx` | Hero integration only; Supabase and other sections unchanged |
 | `src/index.css` | Scoped hero spacing and character sizing |
 | `package.json` | Adds `character:extract` and `test:character`; dependencies unchanged |
-| `.gitignore` | Excludes the local source MP4 |
+| `.gitignore` | Excludes dependencies, build output, and local environment configuration |
 | `README.md` | Links to this guide |
 | `docs/interactive-character.md` | Source timeline, implementation, verification, replacement guide |
 

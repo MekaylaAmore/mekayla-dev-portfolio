@@ -15,7 +15,9 @@ The hero includes an interactive character extracted from the supplied Hailuo vi
 See [the character guide](docs/interactive-character.md) for the source timeline,
 browser verification, limitations, and asset replacement instructions. To regenerate
 the optimized frames with FFmpeg and FFprobe installed, run `npm run character:extract`.
-The local source `character-animation.mp4` is ignored by Git.
+The [original character video](character-animation.mp4) is included for viewing
+and regenerating the assets. The website's animation player uses the optimized
+WebP sequences in [`public/animations/character`](public/animations/character).
 
 I'm a Software Developer passionate about building modern, user-friendly, and impactful applications. This portfolio showcases my projects, technical skills, certifications, and continuous learning journey as I work toward becoming a professional Full-Stack Developer.
 
