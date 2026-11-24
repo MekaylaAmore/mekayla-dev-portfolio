@@ -3,15 +3,17 @@ import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'fra
 import {
   Github, Linkedin, Mail, ExternalLink, Code2, Database, Server,
   Cpu, GitBranch, Container, ChevronRight, Send, Sparkles, Zap,
-  Layers, Globe, GraduationCap, Briefcase, Award, Star, MessageSquare,
+  Globe, GraduationCap, Briefcase, Award, Star, MessageSquare,
   TrendingUp, Users, Loader2, FileText, BookOpen, Download, Shield, CheckCircle
 } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
+import { InteractiveCharacter } from './components/interactive-character/InteractiveCharacter';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = supabaseUrl && supabaseAnonKey
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
 
 interface Review {
   id: string;
@@ -94,12 +96,12 @@ const Navigation = () => {
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <motion.div className="font-display text-xl tracking-wider" whileHover={{ scale: 1.05 }}>
+        <motion.div className="font-display text-xl tracking-wider shrink-0" whileHover={{ scale: 1.05 }}>
           <span className="chrome-text font-bold">MKD</span>
           <span className="text-pink-neon/50">.</span>
         </motion.div>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4 lg:gap-8">
           {navItems.map((item, i) => (
             <motion.a
               key={item}
@@ -117,7 +119,7 @@ const Navigation = () => {
 
         <motion.a
           href="mailto:mekayladewee0@gmail.com"
-          className="glow-button px-6 py-2 rounded-full text-sm font-medium"
+          className="glow-button px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap shrink-0"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -129,7 +131,7 @@ const Navigation = () => {
 };
 
 const HeroSection = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
@@ -140,7 +142,7 @@ const HeroSection = () => {
   return (
     <motion.section
       ref={containerRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden px-6"
+      className="portfolio-hero min-h-screen flex items-center justify-center relative overflow-hidden px-6"
       style={{ opacity, scale, y }}
     >
       {/* Orbiting rings */}
@@ -169,7 +171,9 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="relative z-10 text-center max-w-4xl">
+      <div className="relative z-10 text-center w-full min-w-0 max-w-4xl">
+        <InteractiveCharacter heroRef={containerRef} />
+
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="mb-4">
           <span className="font-mono text-pink-neon/60 text-sm tracking-[0.3em] uppercase">
             Junior Software Developer · Johannesburg, South Africa
@@ -251,7 +255,7 @@ const HeroSection = () => {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute -bottom-14 left-1/2 -translate-x-1/2 pointer-events-none"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
@@ -1044,6 +1048,7 @@ const ExperienceSection = () => {
                     key={i}
                     className="flex-1 rounded-sm"
                     style={{
+                      transformOrigin: 'bottom',
                       height: `${8 + Math.random() * 24}px`,
                       background: Math.random() > 0.4
                         ? `rgba(255, 20, 147, ${0.3 + Math.random() * 0.7})`
@@ -1051,7 +1056,7 @@ const ExperienceSection = () => {
                     }}
                     initial={{ scaleY: 0 }}
                     animate={isInView ? { scaleY: 1 } : {}}
-                    transition={{ delay: i * 0.015, origin: 'bottom' }}
+                    transition={{ delay: i * 0.015 }}
                   />
                 ))}
               </div>
@@ -1314,6 +1319,10 @@ const ReviewsSection = () => {
   const [form, setForm] = useState({ name: '', role: '', rating: 5, message: '' });
 
   const fetchReviews = async () => {
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
     const { data, error } = await supabase
       .from('reviews')
       .select('*')
@@ -1335,6 +1344,10 @@ const ReviewsSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!supabase) {
+      setFormError('Reviews are currently unavailable. Please try again later.');
+      return;
+    }
     if (!form.name.trim() || !form.message.trim()) return;
     setSubmitting(true);
     setFormError('');
@@ -1449,7 +1462,7 @@ const ReviewsSection = () => {
               </div>
             ) : reviews.length === 0 ? (
               <div className="glass-panel rounded-2xl p-8 text-center text-gray-500 text-sm">
-                No reviews yet — be the first!
+                {supabase ? 'No reviews yet — be the first!' : 'Reviews are currently unavailable.'}
               </div>
             ) : (
               <div className="space-y-4 max-h-[560px] overflow-y-auto pr-1">
@@ -1522,10 +1535,11 @@ const ReviewsSection = () => {
                         required
                       />
                     </div>
+                    {!supabase && <p className="text-gray-500 text-xs">Reviews are currently unavailable.</p>}
                     {formError && <p className="text-red-400 text-xs">{formError}</p>}
                     <motion.button
                       type="submit"
-                      disabled={submitting}
+                      disabled={submitting || !supabase}
                       className="glow-button w-full py-4 rounded-xl font-display font-bold flex items-center justify-center gap-2 disabled:opacity-50"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}

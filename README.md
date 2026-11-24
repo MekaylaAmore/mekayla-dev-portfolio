@@ -2,6 +2,21 @@
 
 Welcome to my developer portfolio!
 
+## Run locally
+
+```sh
+npm ci
+npm run dev
+```
+
+Open the local URL printed by Vite in your browser. The portfolio can be previewed without a database. Public reviews require `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in a `.env.local` file, plus a Supabase `reviews` table configured for reading and submitting reviews. Without these settings, the page still loads and review submissions are disabled.
+
+The hero includes an interactive character extracted from the supplied Hailuo video.
+See [the character guide](docs/interactive-character.md) for the source timeline,
+browser verification, limitations, and asset replacement instructions. To regenerate
+the optimized frames with FFmpeg and FFprobe installed, run `npm run character:extract`.
+The local source `character-animation.mp4` is ignored by Git.
+
 I'm a Software Developer passionate about building modern, user-friendly, and impactful applications. This portfolio showcases my projects, technical skills, certifications, and continuous learning journey as I work toward becoming a professional Full-Stack Developer.
 
 ## 🚀 About Me

@@ -29,6 +29,68 @@ body {
   overflow-x: hidden;
 }
 
+/* Keep the existing centered hero and reserve space before assets load. */
+.portfolio-hero {
+  min-height: 100svh;
+  padding-top: 7.5rem;
+  padding-bottom: 5rem;
+}
+
+.interactive-character {
+  position: relative;
+  width: min(100%, 36rem);
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 20, 147, 0.1);
+  border-radius: 1rem;
+  background: #100d14;
+  pointer-events: none;
+  user-select: none;
+}
+
+.character-poster,
+.character-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.character-canvas {
+  opacity: 0;
+}
+
+/* Preserve room for the original headline and CTAs on shorter desktops. */
+@media (min-width: 768px) and (max-height: 800px) {
+  .portfolio-hero {
+    padding-top: 6.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .interactive-character {
+    width: min(100%, 24rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .portfolio-hero {
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .interactive-character {
+    width: min(100%, 28rem);
+  }
+}
+
+@media (max-width: 359px) {
+  .portfolio-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "source": {
+    "filename": "character-animation.mp4",
+    "duration": 5.166667,
+    "width": 2944,
+    "height": 1248,
+    "fps": "24/1",
+    "frameCount": 124
+  },
+  "width": 736,
+  "height": 312,
+  "poster": "animations/character/idle/frame_0001.webp",
+  "totalFrames": 62,
+  "totalBytes": 496832,
+  "animations": {
+    "idle": {
+      "name": "idle",
+      "frames": [
+        "animations/character/idle/frame_0001.webp",
+        "animations/character/idle/frame_0002.webp",
+        "animations/character/idle/frame_0003.webp",
+        "animations/character/idle/frame_0004.webp",
+        "animations/character/idle/frame_0005.webp",
+        "animations/character/idle/frame_0006.webp"
+      ],
+      "frameCount": 6,
+      "fps": 12,
+      "loop": true,
+      "duration": 0.5,
+      "sourceStart": 0,
+      "sourceEnd": 0.5,
+      "description": "Typing with headphones on."
+    },
+    "look-left": {
+      "name": "look-left",
+      "frames": [
+        "animations/character/look-left/frame_0001.webp",
+        "animations/character/look-left/frame_0002.webp",
+        "animations/character/look-left/frame_0003.webp",
+        "animations/character/look-left/frame_0004.webp",
+        "animations/character/look-left/frame_0005.webp",
+        "animations/character/look-left/frame_0006.webp",
+        "animations/character/look-left/frame_0007.webp"
+      ],
+      "frameCount": 7,
+      "fps": 12,
+      "loop": false,
+      "duration": 0.5833333333333334,
+      "sourceStart": 0.5,
+      "sourceEnd": 1.0833333333333333,
+      "description": "Visitor-facing/slightly screen-left glance; no independent far-left turn exists."
+    },
+    "look-right": {
+      "name": "look-right",
+      "entryFrames": {
+        "idle": 5
+      },
+      "frames": [
+        "animations/character/look-right/frame_0001.webp",
+        "animations/character/look-right/frame_0002.webp",
+        "animations/character/look-right/frame_0003.webp",
+        "animations/character/look-right/frame_0004.webp",
+        "animations/character/look-right/frame_0005.webp",
+        "animations/character/look-right/frame_0006.webp",
+        "animations/character/look-right/frame_0007.webp",
+        "animations/character/look-right/frame_0008.webp",
+        "animations/character/look-right/frame_0009.webp",
+        "animations/character/look-right/frame_0010.webp",
+        "animations/character/look-right/frame_0011.webp",
+        "animations/character/look-right/frame_0012.webp"
+      ],
+      "frameCount": 12,
+      "fps": 12,
+      "loop": false,
+      "duration": 1,
+      "sourceStart": 1.0833333333333333,
+      "sourceEnd": 2.0833333333333335,
+      "description": "Turns toward screen-right and the laptop."
+    },
+    "greeting": {
+      "name": "greeting",
+      "frames": [
+        "animations/character/greeting/frame_0001.webp",
+        "animations/character/greeting/frame_0002.webp",
+        "animations/character/greeting/frame_0003.webp",
+        "animations/character/greeting/frame_0004.webp",
+        "animations/character/greeting/frame_0005.webp",
+        "animations/character/greeting/frame_0006.webp",
+        "animations/character/greeting/frame_0007.webp",
+        "animations/character/greeting/frame_0008.webp",
+        "animations/character/greeting/frame_0009.webp",
+        "animations/character/greeting/frame_0010.webp",
+        "animations/character/greeting/frame_0011.webp",
+        "animations/character/greeting/frame_0012.webp",
+        "animations/character/greeting/frame_0013.webp",
+        "animations/character/greeting/frame_0014.webp",
+        "animations/character/greeting/frame_0015.webp",
+        "animations/character/greeting/frame_0016.webp",
+        "animations/character/greeting/frame_0017.webp",
+        "animations/character/greeting/frame_0018.webp",
+        "animations/character/greeting/frame_0019.webp",
+        "animations/character/greeting/frame_0020.webp",
+        "animations/character/greeting/frame_0021.webp",
+        "animations/character/greeting/frame_0022.webp"
+      ],
+      "frameCount": 22,
+      "fps": 12,
+      "loop": false,
+      "duration": 1.8333333333333333,
+      "sourceStart": 2.0833333333333335,
+      "sourceEnd": 3.9166666666666665,
+      "description": "Notices the visitor, removes headphones, briefly raises a hand; no separate wave cycle."
+    },
+    "point-down": {
+      "name": "point-down",
+      "frames": [
+        "animations/character/point-down/frame_0001.webp",
+        "animations/character/point-down/frame_0002.webp",
+        "animations/character/point-down/frame_0003.webp",
+        "animations/character/point-down/frame_0004.webp",
+        "animations/character/point-down/frame_0005.webp",
+        "animations/character/point-down/frame_0006.webp",
+        "animations/character/point-down/frame_0007.webp",
+        "animations/character/point-down/frame_0008.webp",
+        "animations/character/point-down/frame_0009.webp"
+      ],
+      "frameCount": 9,
+      "fps": 12,
+      "loop": false,
+      "duration": 0.75,
+      "sourceStart": 3.9166666666666665,
+      "sourceEnd": 4.666666666666667,
+      "description": "Points down and starts lowering her hand."
+    },
+    "return-to-work": {
+      "name": "return-to-work",
+      "frames": [
+        "animations/character/return-to-work/frame_0001.webp",
+        "animations/character/return-to-work/frame_0002.webp",
+        "animations/character/return-to-work/frame_0003.webp",
+        "animations/character/return-to-work/frame_0004.webp",
+        "animations/character/return-to-work/frame_0005.webp",
+        "animations/character/return-to-work/frame_0006.webp"
+      ],
+      "frameCount": 6,
+      "fps": 12,
+      "loop": false,
+      "duration": 0.5,
+      "sourceStart": 4.666666666666667,
+      "sourceEnd": 5.166666666666667,
+      "description": "Resumes typing with headphones around her neck; crossfade to original idle."
+    }
+  }
+}

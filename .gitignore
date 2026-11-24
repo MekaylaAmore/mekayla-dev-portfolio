@@ -21,3 +21,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Local animation source; optimized WebP frames are served from public/.
+/character-animation.mp4
